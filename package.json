@@ -14,7 +14,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "react-use-promise-matcher": "^1.0.7",
+    "react-use-promise-matcher": "^1.2.1",
     "styled-components": "^5.1.1",
     "true-myth": "^4.0.0",
     "typescript": "~3.7.2"

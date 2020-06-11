@@ -5,8 +5,8 @@ export const colors = {
   negative: "#D1495B",
   positive: "#44AF69",
   warning: "#EDAE49",
-  base: "#443742",
-  background: "#EEEEEE",
+  base: "#eeeeee",
+  background: "#dddddd",
 };
 
 export const flexColumn = css`
@@ -17,7 +17,6 @@ export const flexColumn = css`
 export const ErrorWrapper = styled.div`
   color: ${colors.negative};
   font-weight: 500;
-  margin: 8px 12px;
 `;
 
 const loaderAnimation = keyframes`
