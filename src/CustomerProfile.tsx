@@ -17,6 +17,7 @@ import {
 } from "react-use-promise-matcher";
 import { AccountView } from "./AccountView";
 import { TransactionsList } from "./TransactionsList";
+import { matchPromiseResultShape } from "./matchPromiseResultShape";
 
 interface Props {
   customerId: number;
@@ -87,26 +88,22 @@ export const CustomerProfile = ({ customerId: userId }: Props) => {
   return (
     <CustomerContext.Provider value={user}>
       <Container>
-        {user.match({
-          Loading: () => <Loader />,
-          Rejected: (err) => <ErrorWrapper>{err}</ErrorWrapper>,
-          Resolved: (u) => (
-            <>
-              {u.firstName} {u.lastName}
-              <Accounts>
-                <AccountView
-                  account={checkingAccount}
-                  accountName={"Checking account"}
-                />
+        {matchPromiseResultShape(user, (u) => (
+          <>
+            {u.firstName} {u.lastName}
+            <Accounts>
+              <AccountView
+                account={checkingAccount}
+                accountName={"Checking account"}
+              />
 
-                <AccountView
-                  account={savingsAccount}
-                  accountName={"Savings account"}
-                />
-              </Accounts>
-            </>
-          ),
-        })}
+              <AccountView
+                account={savingsAccount}
+                accountName={"Savings account"}
+              />
+            </Accounts>
+          </>
+        ))}
         <h4>Transactions</h4>
         <Button
           type={"button"}
